@@ -1,16 +1,59 @@
 interface BadgeOptions {
-	fontColor: string;
-	font: string;
+	/**
+	 * Font color for the badge
+	 * @default 'auto'
+	 */
+	fontColor?: string;
+	/**
+	 * Font size and family for the badge
+	 * @default '62px Microsoft Yahei'
+	 */
+	font?: string;
 	color: string;
-	radius: number;
+	/**
+	 * Radius of the badge circle
+	 * @default 48
+	 */
+	radius?: number;
+	/**
+	 * Channel name to listen for badge updates
+	 * @default 'update-badge'
+	 */
 	updateBadgeEvent: string;
-	badgeDescription: string;
+	/**
+	 * Description for the badge for accessibility purposes
+	 * @default 'New notification'
+	 */
+	badgeDescription?: string;
+	/**
+	 * Whether to listen for events from the renderer process
+	 * @default true
+	 */
 	listenFromRenderer?: boolean;
-	invokeType: string;
-	max: number;
-	fit: boolean;
-	useSystemAccentTheme: boolean;
-	additionalFunc(count: number): void;
+	/**
+	 * 'send' | 'handle'
+	 * @default 'send'
+	 */
+	invokeType?: "send" | "handle";
+	/**
+	 * Maximum number to display on the badge
+	 * @default 99
+	 */
+	max?: number;
+	/**
+	 * Whether the badge should fit the content
+	 * @default false
+	 */
+	fit?: boolean;
+	/**
+	 * Whether to use the system accent color theme
+	 * @default false
+	 */
+	useSystemAccentTheme?: boolean;
+	/**
+	 * Additional function to call when the badge is updated
+	 */
+	additionalFunc?: (count: number) => void;
 }
 
 /**
