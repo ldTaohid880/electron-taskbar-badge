@@ -1,15 +1,16 @@
 interface BadgeOptions {
-	fontColor: string,
-	font: string,
-	color: string,
-	radius: number,
-	updateBadgeEvent: string,
-	badgeDescription: string,
-	invokeType: string,
-	max: number,
-	fit: boolean,
-	useSystemAccentTheme: boolean,
-	additionalFunc(count: number): void
+	fontColor: string;
+	font: string;
+	color: string;
+	radius: number;
+	updateBadgeEvent: string;
+	badgeDescription: string;
+	listenFromRenderer?: boolean;
+	invokeType: string;
+	max: number;
+	fit: boolean;
+	useSystemAccentTheme: boolean;
+	additionalFunc(count: number): void;
 }
 
 /**
@@ -37,5 +38,7 @@ interface BadgeOptions {
 */
 
 export default class Badge {
-	constructor(win: object, opts: BadgeOptions)
+	constructor(win: object, opts: BadgeOptions);
+	update(badgeCount: number): void;
+	initListeners(): void;
 }
